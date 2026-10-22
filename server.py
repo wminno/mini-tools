@@ -110,7 +110,7 @@ def handle(method, path):
 
     return 404, b'{"error":"not found"}', "application/json"
 
-LOG = "os.environ.get("ACCESS_LOG","access.log")"
+LOG = os.environ.get("ACCESS_LOG", "access.log")
 _loglock = threading.Lock()
 def log_hit(method, target, code):
     if target.split("?")[0] == "/health":
